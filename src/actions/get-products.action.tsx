@@ -1,5 +1,7 @@
-import qs from 'query-string';
+import queryString from 'query-string';
 import { Product } from '@/lib/types';
+
+export const dynamic = 'force-dynamic' // defaults to force-static
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
@@ -12,16 +14,11 @@ type Query = {
 };
 
 export const getProductsAction = async (query: Query): Promise<Product[]> => {
-  console.log('query', query);
-  const url = qs.stringifyUrl({
+  const stringified_url = queryString.stringifyUrl({
     url: URL,
-    query: {
-      isFeatured: query.isFeatured,
-    },
+    query,
   });
 
-  console.log('url', url);
-
-  const response = await fetch(URL);
+  const response = await fetch(stringified_url);
   return response.json();
 };
