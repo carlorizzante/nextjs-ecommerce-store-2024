@@ -15,7 +15,7 @@ type MainNavigationProps = WithClassName & {
 export const MainNavigation = ({ data = [] }: MainNavigationProps) => {
   const pathname = usePathname();
 
-  const routes = data.map(({ id, name }: any) => ({
+  const routes = data.map(({ id, name }: { id: string; name: string; }) => ({
     href: `/category/${id}`,
     label: name,
     active: pathname === `/category/${id}`,
@@ -23,7 +23,7 @@ export const MainNavigation = ({ data = [] }: MainNavigationProps) => {
 
   return (
     <nav className="flex items-center gap-4 lg:gap-6 mx-6">
-      {routes.map(({ href, label, active }: any) => (
+      {routes.map(({ href, label, active }) => (
         <Link key={href} href={href}
           className={cn(
             'text-sm font-medium transition-colors hover:text-black',

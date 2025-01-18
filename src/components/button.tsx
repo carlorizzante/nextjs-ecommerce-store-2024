@@ -15,9 +15,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       className={cn(
         'flex justify-between items-center gap-2 rounded-full bg-black px-4 py-2',
         'text-white font-semibold text-sm',
-        'hover:opacity-75 transition',
+        'hover:opacity-75',
         'disabled:cursor-not-allowed',
         'disabled:opacity-50',
+        'transition',
         className
       )}
       {...props}
@@ -25,4 +26,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       {props.children}
     </button>
   )
-})
+});
+
+Button.displayName = 'Button';

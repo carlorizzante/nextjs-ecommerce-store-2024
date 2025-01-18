@@ -10,6 +10,7 @@ import {
   Product,
   WithClassName,
 } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import { Currency } from './currency';
 import { IconButton } from './icon-button';
 
@@ -27,7 +28,7 @@ export const ProductCard = ({ className, product }: ProductCardProps) => {
   return (
     <div
       onClick={handleOpenProductPage}
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      className={cn('bg-white group cursor-pointer rounded-xl border p-3 space-y-4', className)}
     >
       {/* Images and actions */}
       <div className="aspect-square rounded-md bg-gray-100 relative">

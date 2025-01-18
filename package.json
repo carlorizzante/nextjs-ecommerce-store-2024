@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "validate": "yarn type-check && yarn lint",
+    "update": "yarn upgrade-interactive --latest && yarn validate",
+    "update:shadcn-ui": "for file in ./src/components/ui/*.tsx; do npx shadcn-ui@0.8.0 add -y -o $(basename \"$file\" .tsx); echo $(basename \"$file\"); done && yarn validate",
+    "undocommit": "git reset --soft HEAD~"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

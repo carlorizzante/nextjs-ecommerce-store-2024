@@ -7,8 +7,8 @@ export type WithClassName = {
 }
 
 export type WithParams = {
-  // params: Record<string, string>;
   params: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string>>;
 }
 
 export type WithPagination = {

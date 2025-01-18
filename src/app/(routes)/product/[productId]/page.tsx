@@ -6,6 +6,8 @@ import { Info } from '@/components/info';
 import { ProductList } from '@/components/product-list';
 import { WithParams } from '@/lib/types';
 
+export const revalidate = 0;
+
 export default async function ProductPage({ params }: Readonly<WithParams>) {
   const { productId } = await params;
 
