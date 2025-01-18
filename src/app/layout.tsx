@@ -4,6 +4,7 @@ import { Urbanist } from 'next/font/google';
 import { Container } from '@/components/container';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
+import { ModalProvider } from '@/providers';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
           {children}
         </Container>
         <Footer />
+        <ModalProvider />
       </body>
     </html>
   );
