@@ -8,6 +8,7 @@ import {
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { usePreviewModal } from '@/hooks';
+import { useCart } from '@/hooks/use-cart';
 import {
   Product,
   WithClassName,
@@ -23,6 +24,7 @@ type ProductCardProps = WithClassName & {
 export const ProductCard = ({ className, product }: ProductCardProps) => {
   const router = useRouter();
   const previewModal = usePreviewModal();
+  const cart = useCart();
 
   const handleOpenProductPage = () => {
     router.push(`/product/${product.id}`)
@@ -35,6 +37,7 @@ export const ProductCard = ({ className, product }: ProductCardProps) => {
 
   const handleAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
+    cart.addItem(product);
   }
 
   return (

@@ -1,9 +1,10 @@
+import { MouseEventHandler } from 'react';
 import { WithClassName } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 type IconButtonProps = WithClassName & {
   icon: React.ReactNode;
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
 export const IconButton = ({ className, icon, onClick }: IconButtonProps) => (

@@ -4,10 +4,14 @@ import { Billboard } from '@/components/billboard';
 import { Container } from '@/components/container';
 import { ProductList } from '@/components/product-list';
 
+const BILLBOARD_ID = process.env.BILLBOARD_ID!;
+
 export default async function HomePage() {
-  const billboard = await getBillboardAction('cm5nwb5220001ryjuvwjw6or5');
+  const billboard = await getBillboardAction(BILLBOARD_ID);
   const featuredProducts = await getProductsAction({ isFeatured: true });
   const allProducts = await getProductsAction({});
+
+  console.log('billboard', billboard);
 
   return (
     <Container>

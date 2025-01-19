@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { currencyFormatter } from '@/lib/utils';
 
-export const Currency = ({ amount }: { amount: string }) => {
+export const Currency = ({ amount }: { amount: string | number }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
