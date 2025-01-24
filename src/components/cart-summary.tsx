@@ -26,6 +26,7 @@ export const CartSummary = () => {
         CHECKOUT_URL,
         { productIds: items.map((item) => item.id) }
       );
+      console.log(response.data.url);
       window.location = response.data.url;
     } catch {
       toast.error('An error occurred. Please try again.');
@@ -61,6 +62,7 @@ export const CartSummary = () => {
       <Button
         onClick={handleCheckout}
         className="w-full justify-center"
+        disabled={items.length === 0}
       >
         Checkout
       </Button>
